@@ -14,7 +14,7 @@ export class AppComponent {
   displayedIncome: number= 0
   displayedIncomePerSec: number= 0
   @Input() data = data;
-
+  
 
   constructor(private Service: service) {
 

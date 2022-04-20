@@ -1,0 +1,12 @@
+.imgCenter {
+    background: url("../../assets/dolar.png");
+    background-color: rgb(57, 218, 57);
+    background-size: 100% 100%;
+    width:100%;
+    cursor: pointer;
+    height:300px;
+    opacity: 0.9;
+}
+.imgCenter:hover {
+    opacity:1
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ɵɵtrustConstantResourceUrl, SimpleChanges } from '@angular/core';
 import { service} from "../service"
 
 @Component({
@@ -8,20 +8,33 @@ import { service} from "../service"
 })
 export class ShopOptionComponent implements OnInit {
 
+  totalIncome: number= 0;
   @Input() singleData: any; // imported object
   Income = 0
 
   constructor(private Service: service) { }
 
   ngOnInit(): void {
+    this.Service.getSum().subscribe( info =>
+      this.totalIncome = info
+    ) /// getting totalIncome here
+    
     
   }
+  // !!need to think if its good solution!!
+  ngDoCheck() {
+    if(this.totalIncome >= this.singleData.cost) {
+      this.singleData.isReach = true
+    } else {
+      this.singleData.isReach = false
+    }
+  }
+
   buy(){
     this.Income += this.singleData.value
     this.singleData.cost =  Math.floor(this.singleData.cost * this.singleData.patternlvl) // increasing costs
     this.Service.changeIncomePerSecond(this.singleData.value) // adding the value to general Income per sec
-    // if its not started yet
-   
+    
   }
 
 }

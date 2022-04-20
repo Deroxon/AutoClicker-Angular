@@ -1,8 +1,8 @@
-<div class="square">
+<div class="square" [style.opacity]="singleData.isReach? '1': '0.7' " > 
 
 
     <ul> 
-        <li>{{singleData.title}} </li>
+        <li><b>{{singleData.title}}</b> </li>
         <li>Income: {{Income}}$/sec </li>
         <li>Cost: {{singleData.cost}}$ </li>
         <li>Value: {{singleData.value}}$ </li>

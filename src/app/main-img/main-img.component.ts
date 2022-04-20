@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { service } from '../service';
 
 @Component({
   selector: 'app-main-img',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainImgComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Service: service) { }
 
   ngOnInit(): void {
   }
+
+  add() {
+    this.Service.addIncome()
+  }
+
 
 }

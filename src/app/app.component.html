@@ -5,9 +5,19 @@
   <h1>All Income: {{displayedIncome}} </h1>
   <h2>Income per Second: {{displayedIncomePerSec}} </h2>
 
-    <div *ngFor='let option of data'>
-      {{option.id}}
-      <app-shop-option [singleData]="option" ></app-shop-option>
+  <div class='compCont'>
+
+    <div class="dropDown1" >
+      <div *ngFor='let option of data'>
+        <app-shop-option [singleData]="option" ></app-shop-option>
+      </div>
     </div>
+    <div class="imgMoney">
+      <app-main-img></app-main-img>
+    </div>
+   
+
+  </div>
+    
 
 </div>

@@ -1,0 +1,13 @@
+.compCont {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+.dropDown1 {
+    display: inline-block;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.imgMoney {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}

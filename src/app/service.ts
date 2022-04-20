@@ -28,6 +28,12 @@ export class service {
         this.totalperSec.next(this.incomePerSecond)
     }
 
+    /// adding by single click
+    addIncome() {
+        this.totalIncome++
+        this.total.next(this.totalIncome)
+    }
+
     // functions that return upper values as Observable
     getSum(): Observable<number> {
         return this.total.asObservable()

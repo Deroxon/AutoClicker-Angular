@@ -1,0 +1,23 @@
+.square {
+    border:1px solid black;
+    text-align: center;
+    background: linear-gradient(rgb(221, 221, 84),rgb(44, 43, 43));
+    text-shadow:2px 2px 1px black;
+    color:white;
+}
+
+.square ul {
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    margin:1em;
+    list-style-type: none;
+}
+.square ul li {
+    margin:5px;
+}
+.square button {
+    justify-content: center;
+    align-items: center;
+   
+}

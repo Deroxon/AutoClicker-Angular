@@ -9,6 +9,7 @@ export const data = [
             title: 'Student',
             cost: 30,
             quanity: 0,
+            isReach: false,
             lvl:1,
         },
         {
