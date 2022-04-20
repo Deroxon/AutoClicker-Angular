@@ -1,0 +1,13 @@
+<h1>hello World!</h1>
+
+<div class="container">
+
+  <h1>All Income: {{displayedIncome}} </h1>
+  <h2>Income per Second: {{displayedIncomePerSec}} </h2>
+
+    <div *ngFor='let option of data'>
+      {{option.id}}
+      <app-shop-option [singleData]="option" ></app-shop-option>
+    </div>
+
+</div>
