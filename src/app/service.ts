@@ -29,8 +29,14 @@ export class service {
     }
 
     /// adding by single click
-    addIncome() {
-        this.totalIncome++
+    addIncome(value:number) {
+        this.totalIncome += value;
+        this.total.next(this.totalIncome)
+    }
+
+    // minus after for example buying something
+    minusIncome(value:number) {
+        this.totalIncome = this.totalIncome - value
         this.total.next(this.totalIncome)
     }
 

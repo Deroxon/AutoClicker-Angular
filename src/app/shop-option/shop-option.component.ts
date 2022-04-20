@@ -21,7 +21,7 @@ export class ShopOptionComponent implements OnInit {
     
     
   }
-  // !!need to think if its good solution!!
+  // !! need to think if its good solution and if there is better !!
   ngDoCheck() {
     if(this.totalIncome >= this.singleData.cost) {
       this.singleData.isReach = true
@@ -31,9 +31,14 @@ export class ShopOptionComponent implements OnInit {
   }
 
   buy(){
-    this.Income += this.singleData.value
-    this.singleData.cost =  Math.floor(this.singleData.cost * this.singleData.patternlvl) // increasing costs
-    this.Service.changeIncomePerSecond(this.singleData.value) // adding the value to general Income per sec
+   if(this.totalIncome >= this.singleData.cost) {
+      this.Income += this.singleData.value /// displaying income for component
+      this.Service.minusIncome(this.singleData.cost) // sending to service how much we need to remove from pool
+      this.singleData.cost =  Math.floor(this.singleData.cost * this.singleData.patternlvl) // increasing costs
+      this.Service.changeIncomePerSecond(this.singleData.value) // adding the value to general Income per sec
+      
+    }
+   
     
   }
 

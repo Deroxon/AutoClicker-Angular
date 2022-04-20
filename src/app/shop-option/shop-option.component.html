@@ -1,12 +1,12 @@
 <div class="square" [style.opacity]="singleData.isReach? '1': '0.7' " > 
 
 
-    <ul> 
-        <li><b>{{singleData.title}}</b> </li>
-        <li>Income: {{Income}}$/sec </li>
+    <ul > 
+        <li *ngIf="singleData.id !== 0"><b>{{singleData.title}}</b> </li>
+        <li *ngIf="singleData.id !== 0">Income: {{Income}}$/sec </li>
         <li>Cost: {{singleData.cost}}$ </li>
         <li>Value: {{singleData.value}}$ </li>
     </ul>
-    <button (click)="buy()">Buy {{singleData.title}} </button>
+    <button *ngIf="singleData.id !== 0" (click)="buy()">Buy {{singleData.title}} </button>
 
 </div>

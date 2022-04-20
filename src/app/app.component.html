@@ -15,6 +15,11 @@
     <div class="imgMoney">
       <app-main-img></app-main-img>
     </div>
+    <div class="dropDown2" >
+      <div *ngFor='let option of data2'>
+        <app-shop-option [singleData]="option" ></app-shop-option>
+      </div>
+    </div>
    
 
   </div>
