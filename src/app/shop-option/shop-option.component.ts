@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, ɵɵtrustConstantResourceUrl, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, ɵɵtrustConstantResourceUrl, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { service} from "../service"
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-shop-option',
   templateUrl: './shop-option.component.html',
-  styleUrls: ['./shop-option.component.css']
+  styleUrls: ['./shop-option.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopOptionComponent implements OnInit {
 
@@ -12,23 +14,25 @@ export class ShopOptionComponent implements OnInit {
   @Input() singleData: any; // imported object
   Income = 0
 
-  constructor(private Service: service) { }
+
+  constructor(private Service: service, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.Service.getSum().subscribe( info =>
+    this.Service.getSum().subscribe( info => {
       this.totalIncome = info
-    ) /// getting totalIncome here
+
+      if(this.totalIncome >= this.singleData.cost) {
+        this.singleData.isReach = true
+      } else {
+        this.singleData.isReach = false
+      }
+      this.cdr.detectChanges()
+
+    }) /// getting totalIncome here
     
     
   }
-  // !! need to think if its good solution and if there is better !!
-  ngDoCheck() {
-    if(this.totalIncome >= this.singleData.cost) {
-      this.singleData.isReach = true
-    } else {
-      this.singleData.isReach = false
-    }
-  }
+  
 
   buy(){
    if(this.totalIncome >= this.singleData.cost) {

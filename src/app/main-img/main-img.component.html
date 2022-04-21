@@ -7,7 +7,7 @@
 
 
 <div class="upgradeClicks">
-<app-shop-option [singleData]="dataClick" ></app-shop-option>
+<app-shop-option (click)="upClicks()" [singleData]="dataClick" ></app-shop-option>
 
-    <button (click)="upClicks()">Upgrade Clicks</button>
+  
 </div>

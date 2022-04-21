@@ -33,7 +33,7 @@ export class AppComponent {
     )
 
       this.Service.startIncome()
-
+      this.Service.addIncome(1010)
 
   }
 

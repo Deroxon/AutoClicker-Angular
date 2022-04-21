@@ -1,5 +1,9 @@
-<div class="square" [style.opacity]="singleData.isReach? '1': '0.7' " > 
 
+
+<div class="square"
+    (click)="singleData.id !== 0 ? buy(): false"
+    [style.opacity]="singleData.isReach? '1': '0.7' " 
+> 
 
     <ul > 
         <li *ngIf="singleData.id !== 0"><b>{{singleData.title}}</b> </li>
@@ -7,6 +11,6 @@
         <li>Cost: {{singleData.cost}}$ </li>
         <li>Value: {{singleData.value}}$ </li>
     </ul>
-    <button *ngIf="singleData.id !== 0" (click)="buy()">Buy {{singleData.title}} </button>
 
 </div>
+
